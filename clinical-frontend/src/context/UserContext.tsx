@@ -173,7 +173,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
         // Call backend to update role in database
         const token = localStorage.getItem("authToken");
         if (token) {
-          await fetch("http://localhost:8000/auth/switch-role", {
+          await fetch("https://wellnessdev.onrender.com/auth/switch-role", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
