@@ -1,4 +1,0 @@
-﻿# trigger ci
-# test branch protection
-# PR mail check
-

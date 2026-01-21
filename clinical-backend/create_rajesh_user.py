@@ -5,7 +5,7 @@ from datetime import datetime
 from auth import hash_password
 
 async def create_user():
-    client = AsyncIOMotorClient('mongodb://localhost:27017')
+    client = AsyncIOMotorClient('mongodb+srv://sorimdevs_db_user:USRvJ36YOlw59026@wellnessdev.shmitlo.mongodb.net/?appName=WellnessDev')
     db = client['wellness_db']
 
     # Check if user already exists

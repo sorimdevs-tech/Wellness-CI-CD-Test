@@ -4,7 +4,7 @@ from bson import ObjectId
 from datetime import datetime, timedelta
 
 async def check():
-    client = AsyncIOMotorClient('mongodb://localhost:27017')
+    client = AsyncIOMotorClient('mongodb+srv://sorimdevs_db_user:USRvJ36YOlw59026@wellnessdev.shmitlo.mongodb.net/?appName=WellnessDev')
     db = client['wellness_db']
     
     # Get recent appointments (last 24 hours)

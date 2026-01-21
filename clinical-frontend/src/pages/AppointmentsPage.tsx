@@ -2224,7 +2224,7 @@ export default function AppointmentsPage() {
                         )}
                       </div>
                       <a
-                        href={`http://localhost:8000${doc.file_path}`}
+                        href={`https://wellnessdev.onrender.com${doc.file_path}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition text-sm"
@@ -2232,7 +2232,7 @@ export default function AppointmentsPage() {
                           // Add auth token to download request
                           e.preventDefault();
                           const token = localStorage.getItem("authToken");
-                          fetch(`http://localhost:8000${doc.file_path}`, {
+                          fetch(`https://wellnessdev.onrender.com${doc.file_path}`, {
                             headers: { Authorization: `Bearer ${token}` }
                           })
                           .then(res => res.blob())
