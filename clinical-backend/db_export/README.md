@@ -21,7 +21,7 @@ This folder contains the MongoDB database export for the Wellness Healthcare Pla
 
 ## How to Import
 
-1. Make sure MongoDB is running locally on `mongodb://localhost:27017`
+1. Make sure MongoDB is running locally on `mongodb+srv://sorimdevs_db_user:USRvJ36YOlw59026@wellnessdev.shmitlo.mongodb.net/?appName=WellnessDev`
 2. Navigate to the `clinical-backend` directory
 3. Run the import script:
 

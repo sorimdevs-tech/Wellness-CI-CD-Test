@@ -4,7 +4,7 @@ from bson import ObjectId
 from datetime import datetime
 
 async def fix_doctor():
-    client = AsyncIOMotorClient('mongodb://localhost:27017')
+    client = AsyncIOMotorClient('mongodb+srv://sorimdevs_db_user:USRvJ36YOlw59026@wellnessdev.shmitlo.mongodb.net/?appName=WellnessDev')
     db = client['wellness_db']
     
     # The user who is logged in as Dr. Rajesh Kumar

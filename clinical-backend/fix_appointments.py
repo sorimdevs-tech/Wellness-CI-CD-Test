@@ -3,7 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
 
 async def fix_appointments():
-    client = AsyncIOMotorClient('mongodb://localhost:27017')
+    client = AsyncIOMotorClient('mongodb+srv://sorimdevs_db_user:USRvJ36YOlw59026@wellnessdev.shmitlo.mongodb.net/?appName=WellnessDev')
     db = client['wellness_db']
     
     # The correct Dr. Rajesh Kumar (the one you log in as)

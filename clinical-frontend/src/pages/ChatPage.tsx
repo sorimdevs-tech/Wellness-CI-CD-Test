@@ -226,7 +226,7 @@ const ChatPage: React.FC = () => {
       formData.append('file', selectedFile);
       
       const token = localStorage.getItem('authToken');
-      const response = await fetch(`http://localhost:8000/chat/upload/${selectedConversation}`, {
+      const response = await fetch(`https://wellnessdev.onrender.com/chat/upload/${selectedConversation}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -410,7 +410,7 @@ const ChatPage: React.FC = () => {
       case 'image':
         const imageUrl = message.file_url?.startsWith('http') 
           ? message.file_url 
-          : `http://localhost:8000${message.file_url}`;
+          : `https://wellnessdev.onrender.com${message.file_url}`;
         return (
           <div>
             <img 
@@ -425,7 +425,7 @@ const ChatPage: React.FC = () => {
       case 'file':
         const fileUrl = message.file_url?.startsWith('http') 
           ? message.file_url 
-          : `http://localhost:8000${message.file_url}`;
+          : `https://wellnessdev.onrender.com${message.file_url}`;
         return (
           <a 
             href={fileUrl} 
