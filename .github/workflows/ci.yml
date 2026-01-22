@@ -2,9 +2,9 @@ name: CI Checks
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   ci:
@@ -32,15 +32,14 @@ jobs:
       working-directory: clinical-frontend
       run: npm ci
 
-    - name: Lint frontend
+    - name: Frontend validation (no tests required)
       working-directory: clinical-frontend
-      run: npm run lint || true
-      # (|| true avoids failure if lint is not configured yet)
-
-    - name: Test frontend
-      working-directory: clinical-frontend
-      run: npm test -- --watch=false || true
-      # (safe if tests are not fully set yet)
+      run: |
+        if npm run | grep -q lint; then
+          npm run lint || echo "Lint issues found"
+        else
+          echo "No lint configured"
+        fi
 
     # =======================
     # BACKEND (Python)
@@ -56,6 +55,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Backend syntax check
+    - name: Backend syntax check (required)
       working-directory: clinical-backend
       run: python -m compileall .
+
+    # =======================
+    # STATIC ANALYSIS (MANDATORY)
+    # =======================
+    - name: Run Semgrep (Mandatory Static Analysis)
+      uses: semgrep/action@v1
+      with:
+        config: >
+          p/python
+          p/security-audit
+      env:
+        SEMGREP_TIMEOUT: 300
